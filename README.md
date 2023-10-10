@@ -1,5 +1,4 @@
 # Hexagon Architecture: An Example Implementation
-
 This repository demonstrates an example implementation of the Hexagonal (Ports and Adapters) Architecture. The application showcases the creation of an account along with a two-step asynchronous verification. It employs MongoDB, capitalizing on its optimistic locking feature, given the expected low operation volume.
 
 ### Architectural Layers
@@ -23,9 +22,7 @@ Some features and components not covered in this example include:
 * DDD Objects: The current implementation includes a basic Aggregate. There's potential to introduce more Entities, Value Objects, Policies, and more.
 * Domain Events & Notifications: Each operation should trigger an event. To ensure proper event handling, operations should be idempotent. Additionally, event management should utilize Transactional Inbox and Outbox patterns.
 
-
 ### Getting Started
 To run the application, you need Docker:
 1. Navigate to the `/docker` directory.
 2. Execute the command `docker-compose -d mongo`.
-
