@@ -2,10 +2,13 @@ package org.hexagonexample.adapters.inbound;
 
 import lombok.RequiredArgsConstructor;
 import org.hexagonexample.application.AccountsFacade;
+import org.hexagonexample.application.ports.inbound.AccountDto;
 import org.hexagonexample.application.ports.inbound.CreateAccountCommand;
 import org.hexagonexample.application.ports.inbound.GetAccountsCommand;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("accounts")
@@ -21,9 +24,10 @@ class AccountsController {
         accountsFacade.handle(command);
     }
 
-    @GetMapping("")
-    String getAccounts() {
-        return accountsFacade.handle(new GetAccountsCommand()).toString();
+    @GetMapping
+    GetAccountsResponse getAccounts() {
+        List<AccountDto> accounts = accountsFacade.handle(new GetAccountsCommand());
+        return new GetAccountsResponse(accounts);
 
     }
 }
