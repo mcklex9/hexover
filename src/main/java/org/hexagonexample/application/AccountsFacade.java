@@ -4,7 +4,6 @@ import org.hexagonexample.application.ports.inbound.*;
 import org.hexagonexample.application.ports.outbound.AccountsRepository;
 import org.hexagonexample.application.ports.outbound.FraudCheckVerificationService;
 import org.hexagonexample.application.ports.outbound.SoftCheckVerificationService;
-import org.hexagonexample.domain.Account;
 import org.hexagonexample.domain.AccountId;
 import org.springframework.stereotype.Component;
 
@@ -39,7 +38,7 @@ public class AccountsFacade {
         accountsService.rejectSoftCheckAccount(command);
     }
 
-    public List<Account> handle(GetAccountsCommand command) {
+    public List<AccountDto> handle(GetAccountsCommand command) {
         return accountsService.getAccounts();
     }
 }

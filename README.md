@@ -26,3 +26,4 @@ Some features and components not covered in this example include:
 To run the application, you need Docker:
 1. Navigate to the `/docker` directory.
 2. Execute the command `docker-compose -d mongo`.
+3. Execute the command ` mvn spring-boot:run`
