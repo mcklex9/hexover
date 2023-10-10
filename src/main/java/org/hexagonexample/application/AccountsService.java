@@ -66,8 +66,8 @@ class AccountsService {
         accountsRepository.update(command.accountId(), Account::approveAccount);
     }
 
-    List<Account> getAccounts() {
-        return accountsRepository.getAll();
+    List<AccountDto> getAccounts() {
+        return accountsRepository.getAll().stream().map(AccountDto::from).toList();
     }
 
     private void onAccountDo(AccountId accountId, Consumer<Account> action) {
